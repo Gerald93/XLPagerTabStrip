@@ -34,7 +34,7 @@ public struct SegmentedPagerTabStripSettings {
 }
 
 
-public class SegmentedPagerTabStripViewController: PagerTabStripViewController, PagerTabStripDataSource, PagerTabStripDelegate {
+open class SegmentedPagerTabStripViewController: PagerTabStripViewController, PagerTabStripDataSource, PagerTabStripDelegate {
     
     @IBOutlet lazy public var segmentedControl: UISegmentedControl! = UISegmentedControl()
     
@@ -56,7 +56,7 @@ public class SegmentedPagerTabStripViewController: PagerTabStripViewController, 
     
     private(set) var shouldUpdateSegmentedControl = true
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         if segmentedControl.superview == nil {
             navigationItem.titleView = segmentedControl
