@@ -98,7 +98,7 @@ class NavButtonBarExampleViewController: ButtonBarPagerTabStripViewController {
         super.reloadPagerTabStripView()
     }
     
-    override func configure(cell: ButtonBarViewCell, indicatorInfo: IndicatorInfo) {
+    override func configure(_ cell: ButtonBarViewCell, indicatorInfo: IndicatorInfo) {
         super.configure(cell: cell, indicatorInfo: indicatorInfo)
         cell.backgroundColor = .clear
     }

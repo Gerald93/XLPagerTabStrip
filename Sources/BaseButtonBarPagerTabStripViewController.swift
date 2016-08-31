@@ -24,7 +24,7 @@
 
 import Foundation
 
-public class BaseButtonBarPagerTabStripViewController<ButtonBarCellType : UICollectionViewCell>: PagerTabStripViewController, PagerTabStripDataSource, PagerTabStripIsProgressiveDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+open class BaseButtonBarPagerTabStripViewController<ButtonBarCellType : UICollectionViewCell>: PagerTabStripViewController, PagerTabStripDataSource, PagerTabStripIsProgressiveDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
     public var settings = ButtonBarPagerTabStripSettings()
     public var buttonBarItemSpec: ButtonBarItemSpec<ButtonBarCellType>!
@@ -64,7 +64,7 @@ public class BaseButtonBarPagerTabStripViewController<ButtonBarCellType : UIColl
         datasource = self
     }
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         if buttonBarView.superview == nil {
@@ -98,18 +98,18 @@ public class BaseButtonBarPagerTabStripViewController<ButtonBarCellType : UIColl
         //-
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         buttonBarView.layoutIfNeeded()
         isViewAppearing = true
     }
 
-    public override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         isViewAppearing = false
     }
 
-    public override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         guard isViewAppearing || isViewRotating else { return }
@@ -134,7 +134,7 @@ public class BaseButtonBarPagerTabStripViewController<ButtonBarCellType : UIColl
 
     // MARK: - View Rotation
 
-    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
     }
 
