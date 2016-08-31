@@ -30,7 +30,7 @@ import Foundation
 
 public protocol IndicatorInfoProvider {
     
-    func indicatorInfoForPagerTabStrip(_ pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo
 }
 
 public protocol PagerTabStripDelegate: class {
@@ -45,7 +45,7 @@ public protocol PagerTabStripIsProgressiveDelegate : PagerTabStripDelegate {
 
 public protocol PagerTabStripDataSource: class {
     
-    func viewControllersForPagerTabStrip(_ pagerTabStripController: PagerTabStripViewController) -> [UIViewController]
+    func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController]
 }
 
 
@@ -151,7 +151,7 @@ open class PagerTabStripViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: - PagerTabStripDataSource
     
-    open func viewControllersForPagerTabStrip(_ pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+    open func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         assertionFailure("Sub-class must implement the PagerTabStripDataSource viewControllersForPagerTabStrip: method")
         return []
     }
@@ -356,7 +356,7 @@ open class PagerTabStripViewController: UIViewController, UIScrollViewDelegate {
         guard let dataSource = datasource else {
             fatalError("dataSource must not be nil")
         }
-        viewControllers = dataSource.viewControllersForPagerTabStrip(self)
+        viewControllers = dataSource.viewControllers(for: self)
         // viewControllers
         guard viewControllers.count != 0 else {
             fatalError("viewControllersForPagerTabStrip should provide at least one child view controller")
